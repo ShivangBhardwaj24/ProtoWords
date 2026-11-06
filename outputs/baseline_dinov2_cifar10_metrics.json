@@ -1,0 +1,135 @@
+{
+  "experiment": "DINOv2 ViT-S/14 frozen global CLS features + logistic regression",
+  "dataset": "CIFAR-10",
+  "protocol": {
+    "development_train_for_C_selection": 45000,
+    "validation_for_C_selection": 5000,
+    "final_classifier_refit_train_plus_validation": 50000,
+    "official_test": 10000,
+    "split_seed": 42
+  },
+  "model": "dinov2_vits14",
+  "feature_dimension": 384,
+  "input_size": 224,
+  "selected_C": 1.0,
+  "classifier": "sklearn LogisticRegression(solver='lbfgs')",
+  "feature_normalization": "L2 per image, applied by sklearn Normalizer in saved Pipeline",
+  "validation_search": [
+    {
+      "C": 0.01,
+      "validation_accuracy": 0.965,
+      "validation_macro_f1": 0.9649831061494136,
+      "validation_micro_f1": 0.965,
+      "fit_seconds": 3.104,
+      "convergence_warning": false
+    },
+    {
+      "C": 0.1,
+      "validation_accuracy": 0.974,
+      "validation_macro_f1": 0.9740024545205397,
+      "validation_micro_f1": 0.974,
+      "fit_seconds": 2.787,
+      "convergence_warning": false
+    },
+    {
+      "C": 1.0,
+      "validation_accuracy": 0.9772,
+      "validation_macro_f1": 0.9772272516012757,
+      "validation_micro_f1": 0.9772,
+      "fit_seconds": 5.1,
+      "convergence_warning": false
+    },
+    {
+      "C": 10.0,
+      "validation_accuracy": 0.9758,
+      "validation_macro_f1": 0.9758229945302034,
+      "validation_micro_f1": 0.9758,
+      "fit_seconds": 5.944,
+      "convergence_warning": false
+    }
+  ],
+  "test_metrics": {
+    "accuracy": 0.9761,
+    "macro_f1": 0.9761027269288004,
+    "micro_f1": 0.9761
+  },
+  "classification_report": {
+    "airplane": {
+      "precision": 0.9791459781529295,
+      "recall": 0.986,
+      "f1-score": 0.9825610363726955,
+      "support": 1000.0
+    },
+    "automobile": {
+      "precision": 0.9802371541501976,
+      "recall": 0.992,
+      "f1-score": 0.9860834990059643,
+      "support": 1000.0
+    },
+    "bird": {
+      "precision": 0.9847870182555781,
+      "recall": 0.971,
+      "f1-score": 0.9778449144008057,
+      "support": 1000.0
+    },
+    "cat": {
+      "precision": 0.9352306182531894,
+      "recall": 0.953,
+      "f1-score": 0.9440316988608222,
+      "support": 1000.0
+    },
+    "deer": {
+      "precision": 0.973026973026973,
+      "recall": 0.974,
+      "f1-score": 0.9735132433783108,
+      "support": 1000.0
+    },
+    "dog": {
+      "precision": 0.9712820512820513,
+      "recall": 0.947,
+      "f1-score": 0.958987341772152,
+      "support": 1000.0
+    },
+    "frog": {
+      "precision": 0.97534516765286,
+      "recall": 0.989,
+      "f1-score": 0.9821251241310824,
+      "support": 1000.0
+    },
+    "horse": {
+      "precision": 0.9899699097291875,
+      "recall": 0.987,
+      "f1-score": 0.9884827240861291,
+      "support": 1000.0
+    },
+    "ship": {
+      "precision": 0.986,
+      "recall": 0.986,
+      "f1-score": 0.986,
+      "support": 1000.0
+    },
+    "truck": {
+      "precision": 0.9868554095045501,
+      "recall": 0.976,
+      "f1-score": 0.9813976872800402,
+      "support": 1000.0
+    },
+    "accuracy": 0.9761,
+    "macro avg": {
+      "precision": 0.9761880280007516,
+      "recall": 0.9761,
+      "f1-score": 0.9761027269288004,
+      "support": 10000.0
+    },
+    "weighted avg": {
+      "precision": 0.9761880280007516,
+      "recall": 0.9761,
+      "f1-score": 0.9761027269288001,
+      "support": 10000.0
+    }
+  },
+  "final_classifier_fit_seconds": 4.906967401504517,
+  "final_fit_convergence_warning": false,
+  "feature_cache": "outputs/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "saved_model": "outputs/baseline_dinov2_vits14_logreg_full.joblib"
+}

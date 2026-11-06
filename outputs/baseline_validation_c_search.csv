@@ -1,0 +1,5 @@
+C,validation_accuracy,validation_macro_f1,validation_micro_f1,fit_seconds,convergence_warning
+0.01,0.965,0.9649831061494136,0.965,3.104,False
+0.1,0.974,0.9740024545205397,0.974,2.787,False
+1.0,0.9772,0.9772272516012757,0.9772,5.1,False
+10.0,0.9758,0.9758229945302034,0.9758,5.944,False
