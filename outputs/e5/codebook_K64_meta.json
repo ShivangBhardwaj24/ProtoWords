@@ -1,0 +1,9 @@
+{
+  "K": 64,
+  "inertia": 947822.9375,
+  "seed": 42,
+  "min_cluster_size": 10112,
+  "max_cluster_size": 38571,
+  "empty_clusters": 0,
+  "fit_seconds": 8
+}
