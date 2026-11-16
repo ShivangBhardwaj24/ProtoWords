@@ -1,18 +1,6 @@
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
 
-# Virtual environments
-.venv/
-venv/
-env/
+# Original oversized archive (upload split parts instead)
+/data/CIFAR-10-C.tar
 
-# IDE
-.vscode/
-
-# Temporary files
-*.tmp
-*.log
-.pytest_cache/
-.ipynb_checkpoints/
+# Dataset files are kept locally
+/data/

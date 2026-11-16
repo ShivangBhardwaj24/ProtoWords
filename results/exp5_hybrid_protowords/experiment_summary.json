@@ -1,0 +1,52 @@
+{
+  "experiment": "Hybrid Global ProtoWords",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 CLS features",
+  "feature_dimension": 384,
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "training_images": 45000,
+  "validation_images": 5000,
+  "official_test_used": false,
+  "normalization": "L2 normalization per image feature",
+  "codebook": "One global K-Means codebook fitted on training features only",
+  "K": 256,
+  "soft_assignment": "Softmax over negative squared distances to the m nearest prototypes",
+  "m": 8,
+  "temperature_reference": "Median training-set gap between the nearest and second-nearest squared distances",
+  "temperature_multiplier": 2.0,
+  "soft_block_weights": [
+    1,
+    5,
+    10,
+    20
+  ],
+  "distance_processing": "StandardScaler fitted on training distances only",
+  "hybrid_representation": "Concatenation of standardized centroid distances and weighted localized soft assignments",
+  "C_values": [
+    0.01,
+    0.1,
+    1,
+    10,
+    100
+  ],
+  "continuous_baseline_C": 1.0,
+  "continuous_baseline_validation": {
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757,
+    "validation_weighted_f1": 0.9772272516012758
+  },
+  "seed": 42,
+  "kmeans_n_init": 10,
+  "best_validation_configuration": {
+    "representation": "hybrid",
+    "soft_weight": 20.0,
+    "selected_C": 0.1,
+    "validation_accuracy": 0.9784,
+    "validation_macro_f1": 0.9784382397647555,
+    "validation_weighted_f1": 0.9784382397647556,
+    "convergence_warning": false
+  },
+  "total_runtime_seconds": 159.514,
+  "results_file": "validation_results.csv",
+  "search_file": "hyperparameter_search.csv"
+}

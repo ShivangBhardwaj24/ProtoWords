@@ -1,0 +1,20 @@
+{
+  "experiment": "DINOv2 ViT-S/14 frozen CLS features with logistic regression",
+  "dataset": "CIFAR-10",
+  "split": {
+    "train_for_selection": 45000,
+    "validation": 5000,
+    "final_fit": 50000,
+    "test": 10000
+  },
+  "seed": 42,
+  "image_size": 224,
+  "feature_dimension": 384,
+  "selected_C": 1.0,
+  "test_accuracy": 0.9761,
+  "test_macro_f1": 0.9761027269288004,
+  "test_micro_f1": 0.9761,
+  "final_classifier_converged": true,
+  "feature_cache": "outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "saved_model": "outputs/exp1_baseline/dinov2_vits14_logreg_full.joblib"
+}

@@ -1,0 +1,15 @@
+experiment,focus,evaluation_split,key_result,interpretation
+E1,Frozen DINOv2 baseline,Test,97.61% accuracy,Reference baseline; C=1.0.
+E2,Class-wise prototypes,Test,96.13% Euclidean; 95.93% cosine,80 class-specific prototypes total; below continuous baseline.
+E3,Shared global vocabulary,Validation,97.74% best (K=256 distance),Only 0.02 pp over baseline validation; no test evaluation in E3.
+E4,Localized soft assignment,Validation,97.48% best,Below continuous validation baseline (97.72%).
+E5,Hybrid ProtoWords,Validation,97.84% best,Small validation gain; required final test evaluation.
+E6,Hybrid final evaluation,Test,97.50% hybrid; 97.41% distance; 96.90% soft,Continuous baseline 97.61%; hybrid is 0.11 pp lower.
+E7,CIFAR-10-C corruption robustness,Corruption benchmark,84.17% continuous; 83.87% distance; 83.91% hybrid; 81.79% soft,Mean over 15 corruption types x 5 severity levels.
+E8,OOD detection,OOD benchmarks,Energy AUROC 0.9736 mean; nearest-codebook distance 0.9561,"Energy strongest averaged over CIFAR-100, SVHN and Tiny ImageNet."
+E9,Prototype interpretability and efficiency,Development-set analysis,95.58% mean cluster purity; 0.221 bits mean entropy,256 codewords; storage estimates exclude DINOv2 backbone and serialization.
+E10,Seed stability,Validation across 5 KMeans seeds,Hybrid 97.74% +/- 0.09%; ARI 0.504; NMI 0.801,Same train/validation split; no official test.
+E11,Vocabulary size/stability/efficiency,Validation across 5 seeds,K=128 distance 97.50% +/- 0.03%; K=256 97.67% +/- 0.04%,K=256 increases purity but reduces exact partition agreement.
+E12,Quantized distance representations,Validation,K=256 float32 97.74%; K=256 uint8 97.62%,Quantization ranges fit on training data only.
+E13,Quantized final evaluation,Test,K=128 uint8 97.27%; K=256 uint8 97.35%; K=256 float32 97.40%,"Storage reduction 91.40%, 82.80%, and 32.82%, respectively."
+E14,Statistical reliability,Paired official-test analysis,All four quantized variants significantly below baseline after Holm correction,"Paired bootstrap 10,000 resamples; exact McNemar tests."

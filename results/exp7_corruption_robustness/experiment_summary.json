@@ -1,0 +1,98 @@
+{
+  "experiment": "CIFAR-10-C corruption robustness of fixed E6 models",
+  "dataset": "CIFAR-10-C",
+  "benchmark_protocol": "15 standard corruption types, 5 severity levels, 10,000 images per condition",
+  "corruptions": [
+    "gaussian_noise",
+    "shot_noise",
+    "impulse_noise",
+    "defocus_blur",
+    "glass_blur",
+    "motion_blur",
+    "zoom_blur",
+    "snow",
+    "frost",
+    "fog",
+    "brightness",
+    "contrast",
+    "elastic_transform",
+    "pixelate",
+    "jpeg_compression"
+  ],
+  "severity_levels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "images_per_condition": 10000,
+  "feature_extractor": "frozen DINOv2 ViT-S/14 CLS features",
+  "feature_preprocessing": "224x224 bicubic resize, ImageNet mean/std normalization, L2 feature normalization",
+  "model_source": "/home/shivang/ProtoWords/outputs/exp6_hybrid_final_evaluation/final_models.joblib",
+  "model_parameters": {
+    "K": 256,
+    "m": 8,
+    "temperature": 0.13535451889038086,
+    "soft_weight": 20.0
+  },
+  "clean_test_reference": {
+    "continuous_dinov2_lr": {
+      "accuracy": 0.9761,
+      "macro_f1": 0.9761027269288004
+    },
+    "distance": {
+      "accuracy": 0.9741,
+      "macro_f1": 0.974118070032422
+    },
+    "soft": {
+      "accuracy": 0.969,
+      "macro_f1": 0.9690630574174852
+    },
+    "hybrid": {
+      "accuracy": 0.975,
+      "macro_f1": 0.9750251450418512
+    }
+  },
+  "overall_results": [
+    {
+      "method": "continuous_dinov2_lr",
+      "clean_test_accuracy": 0.9761,
+      "mean_corruption_accuracy": 0.8416773333333333,
+      "mean_corruption_macro_f1": 0.8420659296679405,
+      "accuracy_drop_from_clean_pp": 13.442266666666669,
+      "worst_corruption_accuracy": 0.4884,
+      "corruption_conditions": 75
+    },
+    {
+      "method": "distance",
+      "clean_test_accuracy": 0.9741,
+      "mean_corruption_accuracy": 0.8386613333333334,
+      "mean_corruption_macro_f1": 0.8392447183039676,
+      "accuracy_drop_from_clean_pp": 13.54386666666666,
+      "worst_corruption_accuracy": 0.4725,
+      "corruption_conditions": 75
+    },
+    {
+      "method": "soft",
+      "clean_test_accuracy": 0.969,
+      "mean_corruption_accuracy": 0.8179413333333333,
+      "mean_corruption_macro_f1": 0.8173726963146791,
+      "accuracy_drop_from_clean_pp": 15.105866666666667,
+      "worst_corruption_accuracy": 0.4213,
+      "corruption_conditions": 75
+    },
+    {
+      "method": "hybrid",
+      "clean_test_accuracy": 0.975,
+      "mean_corruption_accuracy": 0.8391253333333334,
+      "mean_corruption_macro_f1": 0.8396106792544223,
+      "accuracy_drop_from_clean_pp": 13.587466666666659,
+      "worst_corruption_accuracy": 0.4548,
+      "corruption_conditions": 75
+    }
+  ],
+  "device": "cuda",
+  "total_runtime_seconds": 838.23,
+  "official_test_usage": "Only CIFAR-10-C test corruptions were evaluated; no model fitting or hyperparameter selection was performed."
+}

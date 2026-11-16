@@ -1,0 +1,53 @@
+{
+  "experiment": "Quantized distance ProtoWords",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 global CLS features",
+  "training_images": 45000,
+  "validation_images": 5000,
+  "official_test_used": false,
+  "vocabulary_sizes": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "formats": [
+    "float32",
+    "float16",
+    "uint8"
+  ],
+  "quantization": {
+    "float16": "Standardized distances rounded to IEEE float16 and restored to float32 for Logistic Regression.",
+    "uint8": "Per-dimension affine quantization to uint8 using training-only lower and upper percentiles; validation values outside the range are clipped.",
+    "clip_percentile_each_tail": 0.5
+  },
+  "fixed_C_by_K": {
+    "32": 100.0,
+    "64": 100.0,
+    "128": 1.0,
+    "256": 0.1
+  },
+  "baseline": {
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757,
+    "validation_weighted_f1": 0.9772272516012758
+  },
+  "best_protowords_configuration": {
+    "K": 256,
+    "format": "float32",
+    "validation_accuracy": 0.9774,
+    "validation_macro_f1": 0.9774194612395422,
+    "amortized_total_bytes_per_image": 1033.059378
+  },
+  "smallest_configuration_within_0.2pp_of_baseline": {
+    "K": 256,
+    "format": "uint8",
+    "validation_accuracy": 0.9762,
+    "amortized_total_bytes_per_image": 265.127644
+  },
+  "runtime_seconds": 127.998,
+  "results": [
+    "validation_results.csv",
+    "quantization_error.csv"
+  ]
+}

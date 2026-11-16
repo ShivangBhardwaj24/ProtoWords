@@ -1,0 +1,6 @@
+representation,storage_format,payload_bytes_per_image,shared_codebook_and_scaler_bytes,classifier_parameter_bytes,total_shared_artifact_bytes,amortized_bytes_per_image_over_50000,timing_sample_images,timing_scope,median_encode_plus_predict_ms_per_image,median_encode_plus_predict_seconds,clean_test_accuracy_percent_from_E6
+continuous_dinov2_lr,dense float32 DINOv2 feature,1536,0,15484,15484,1536.31,5000,encode_plus_classifier_predict,0.0002,0.001,97.61
+hard_code,uint8 prototype ID,1,393216,0,393216,8.864,5000,encode_only_no_E6_classifier,0.00175,0.00875,
+distance,dense float32 distance vector,1024,397312,10364,407676,1032.154,5000,encode_plus_classifier_predict,0.00178,0.00888,97.41
+soft,CSR soft weights (int32 index + float32 weight),68,393216,10364,403580,76.072,5000,encode_plus_classifier_predict,0.00361,0.01805,96.9
+hybrid,dense float32 distance + weighted soft vector,2048,397312,20604,417916,2056.358,5000,encode_plus_classifier_predict,0.00463,0.02314,97.5

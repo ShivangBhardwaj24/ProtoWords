@@ -1,0 +1,73 @@
+{
+  "experiment": "Final test evaluation of E5 Hybrid Global ProtoWords",
+  "dataset": "CIFAR-10",
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "training_images": 45000,
+  "validation_images": 5000,
+  "development_images": 50000,
+  "official_test_images": 10000,
+  "test_use": "Loaded only after all configurations and classifiers were fixed and fitted using development data",
+  "refit_protocol": "Fresh K-Means codebook, distance scaler, and classifiers fitted on train + validation data",
+  "K": 256,
+  "m": 8,
+  "temperature_multiplier": 2.0,
+  "temperature_reference": 0.06767725944519043,
+  "temperature": 0.13535451889038086,
+  "hybrid_soft_weight": 20.0,
+  "selected_configurations_from_E5": {
+    "continuous_dinov2_lr": {
+      "selected_C": 1.0,
+      "validation_accuracy": 0.9772,
+      "validation_macro_f1": 0.9772272516012757
+    },
+    "distance": {
+      "selected_C": 0.1,
+      "validation_accuracy": 0.9768,
+      "validation_macro_f1": 0.9768226747286389
+    },
+    "soft": {
+      "selected_C": 100.0,
+      "validation_accuracy": 0.9754,
+      "validation_macro_f1": 0.9754390652028349
+    },
+    "hybrid": {
+      "selected_C": 0.1,
+      "validation_accuracy": 0.9784,
+      "validation_macro_f1": 0.9784382397647555,
+      "soft_weight": 20.0
+    }
+  },
+  "test_results": {
+    "continuous_dinov2_lr": {
+      "test_accuracy": 0.9761,
+      "test_macro_f1": 0.9761027269288004,
+      "test_weighted_f1": 0.9761027269288001,
+      "correct_predictions": 9761,
+      "accuracy_difference_from_continuous_pp": 0.0
+    },
+    "distance": {
+      "test_accuracy": 0.9741,
+      "test_macro_f1": 0.974118070032422,
+      "test_weighted_f1": 0.9741180700324219,
+      "correct_predictions": 9741,
+      "accuracy_difference_from_continuous_pp": -0.2
+    },
+    "soft": {
+      "test_accuracy": 0.969,
+      "test_macro_f1": 0.9690630574174852,
+      "test_weighted_f1": 0.9690630574174853,
+      "correct_predictions": 9690,
+      "accuracy_difference_from_continuous_pp": -0.71
+    },
+    "hybrid": {
+      "test_accuracy": 0.975,
+      "test_macro_f1": 0.9750251450418512,
+      "test_weighted_f1": 0.9750251450418511,
+      "correct_predictions": 9750,
+      "accuracy_difference_from_continuous_pp": -0.11
+    }
+  },
+  "total_runtime_seconds": 67.336,
+  "results_directory": "/home/shivang/ProtoWords/results/exp6_hybrid_final_evaluation",
+  "outputs_directory": "/home/shivang/ProtoWords/outputs/exp6_hybrid_final_evaluation"
+}

@@ -1,0 +1,34 @@
+{
+  "experiment": "Statistical reliability of E13 quantized ProtoWords test results",
+  "dataset": "CIFAR-10 official test split",
+  "prediction_source": "/home/shivang/ProtoWords/results/exp13_quantized_final_test/final_test_predictions.csv",
+  "test_images": 10000,
+  "baseline": "continuous_dinov2_lr",
+  "baseline_accuracy": 0.9761,
+  "baseline_macro_f1": 0.9761027269288004,
+  "compared_methods": [
+    "k128_uint8",
+    "k256_uint8",
+    "k256_float16",
+    "k256_float32"
+  ],
+  "bootstrap": {
+    "method": "Paired nonparametric bootstrap over test-image indices",
+    "repetitions": 10000,
+    "confidence_level": 0.95,
+    "random_seed": 42
+  },
+  "significance_test": {
+    "method": "Exact two-sided McNemar test on paired correctness indicators",
+    "multiple_comparison_correction": "Holm step-down correction across four comparisons",
+    "alpha": 0.05
+  },
+  "test_data_used_for_model_selection": false,
+  "interpretation_note": "Confidence intervals describe paired test-set accuracy differences under image resampling. McNemar tests compare discordant predictions. These analyses do not replace evaluation across multiple independently trained models or multiple data splits.",
+  "results": [
+    "paired_comparisons.csv",
+    "error_overlap.csv",
+    "classwise_comparisons.csv"
+  ],
+  "bootstrap_output": "paired_bootstrap_accuracy_differences.npz"
+}

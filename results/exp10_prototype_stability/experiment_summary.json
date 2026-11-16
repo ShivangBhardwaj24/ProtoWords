@@ -1,0 +1,78 @@
+{
+  "experiment": "Shared global ProtoWords stability across random seeds",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 global CLS features",
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "training_images": 45000,
+  "validation_images": 5000,
+  "official_test_used": false,
+  "fit_protocol": "A separate global K-Means codebook was fitted on the same training features for each seed; validation features were used only for evaluation.",
+  "k": 256,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "n_init": 10,
+  "max_iter_kmeans": 300,
+  "soft_assignment": {
+    "active_prototypes": 8,
+    "temperature_multiplier": 2.0,
+    "temperature_reference": "Median training-set gap between squared distances to the nearest and second-nearest prototypes, recomputed for each seed.",
+    "hybrid_soft_weight": 20.0
+  },
+  "fixed_classifier_settings": {
+    "continuous_dinov2_lr_C": 1.0,
+    "distance_C": 0.1,
+    "hybrid_C": 0.1,
+    "selection": "No hyperparameter search. C values and representation settings were fixed before this experiment."
+  },
+  "continuous_validation_baseline": {
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757,
+    "validation_weighted_f1": 0.9772272516012758,
+    "C": 1.0,
+    "convergence_warning": false
+  },
+  "stability_summary": {
+    "pairwise_ARI": {
+      "mean": 0.504412378699544,
+      "std": 0.009558709696488464
+    },
+    "pairwise_NMI": {
+      "mean": 0.8010852814755891,
+      "std": 0.004300311637612315
+    },
+    "mean_cluster_purity": {
+      "mean": 0.9561270584219785,
+      "std": 0.0016478712485844802
+    },
+    "mean_cluster_entropy_bits": {
+      "mean": 0.21321043446471868,
+      "std": 0.005544439977921966
+    }
+  },
+  "classification_summary": {
+    "distance_validation_accuracy": {
+      "mean": 0.97632,
+      "std": 0.0005019960159204476
+    },
+    "hybrid_validation_accuracy": {
+      "mean": 0.9773999999999999,
+      "std": 0.000927361849549594
+    },
+    "distance_validation_macro_f1": {
+      "mean": 0.9763414207250548,
+      "std": 0.0005026261211895684
+    },
+    "hybrid_validation_macro_f1": {
+      "mean": 0.9774446178428825,
+      "std": 0.0009301671990118388
+    }
+  },
+  "total_runtime_seconds": 309.962,
+  "results_directory": "/home/shivang/ProtoWords/results/exp10_prototype_stability",
+  "outputs_directory": "/home/shivang/ProtoWords/outputs/exp10_prototype_stability"
+}

@@ -1,0 +1,11 @@
+true/predicted,airplane,automobile,bird,cat,deer,dog,frog,horse,ship,truck
+airplane,986,1,2,1,0,0,0,1,8,1
+automobile,0,992,0,0,0,0,0,0,0,8
+bird,5,0,971,9,7,0,7,1,0,0
+cat,3,1,1,953,6,23,9,2,1,1
+deer,1,0,5,6,974,2,7,4,0,1
+dog,0,0,2,44,4,947,1,2,0,0
+frog,0,0,3,4,0,2,989,0,2,0
+horse,0,0,2,1,8,1,1,987,0,0
+ship,11,0,0,0,1,0,0,0,986,2
+truck,1,18,0,1,1,0,0,0,3,976

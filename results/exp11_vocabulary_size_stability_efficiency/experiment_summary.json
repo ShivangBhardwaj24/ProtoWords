@@ -1,0 +1,57 @@
+{
+  "experiment": "Vocabulary size versus stability and efficiency",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 global CLS features",
+  "feature_dimension": 384,
+  "training_images": 45000,
+  "validation_images": 5000,
+  "official_test_used": false,
+  "k_values": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "kmeans_n_init": 10,
+  "kmeans_max_iter": 300,
+  "classifier_settings": {
+    "hard_assignment_C": 0.01,
+    "distance_C_by_K": {
+      "32": 100.0,
+      "64": 100.0,
+      "128": 1.0,
+      "256": 0.1
+    },
+    "continuous_baseline_C": 1.0,
+    "selection": "Fixed C values from the Experiment 3 validation selections; no hyperparameter search in this experiment."
+  },
+  "measurements": [
+    "validation accuracy and F1 across seeds",
+    "pairwise ARI and NMI of training assignments",
+    "cluster purity and entropy",
+    "representation payload and amortized shared model storage",
+    "median CPU encoding plus classifier prediction time"
+  ],
+  "storage_note": "Per-image feature payload is estimated from the stored representation dtype. Shared codebook, scaler and classifier array parameters are amortized over 50,000 images. DINOv2 backbone storage and Python/joblib serialization overhead are excluded.",
+  "timing_note": "Inference time is the median of three CPU measurements on the validation features. DINOv2 feature extraction and model training are excluded.",
+  "continuous_baseline": {
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757,
+    "validation_weighted_f1": 0.9772272516012758
+  },
+  "total_runtime_seconds": 597.2330549940089,
+  "results": {
+    "seed_results": "seed_results.csv",
+    "pairwise_stability": "pairwise_stability.csv",
+    "vocabulary_size_summary": "vocabulary_size_summary.csv",
+    "storage_efficiency": "storage_efficiency.csv",
+    "codebooks_and_assignments": "codebooks_and_assignments.npz"
+  }
+}

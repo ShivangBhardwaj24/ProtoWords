@@ -1,0 +1,7 @@
+method,threshold,target_id_calibration_tpr,observed_id_calibration_tpr,id_calibration_images
+continuous_msp,0.2680724859237671,0.95,0.9502,5000
+continuous_energy,-4.484509468078613,0.95,0.9502,5000
+distance_confidence,0.15551906824111938,0.95,0.9502,5000
+soft_confidence,0.20361745357513428,0.95,0.9502,5000
+hybrid_confidence,0.14049315452575684,0.95,0.9502,5000
+nearest_codebook_distance,0.8609052300453186,0.95,0.9502,5000

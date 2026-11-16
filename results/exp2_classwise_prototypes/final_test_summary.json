@@ -1,0 +1,31 @@
+{
+  "dataset": "CIFAR-10",
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "development_images": 50000,
+  "official_test_images": 10000,
+  "model_selection": "Best K selected using validation accuracy, with macro-F1 as tie-breaker",
+  "final_fit": "Selected prototypes refitted on the combined 45,000 train and 5,000 validation images",
+  "official_test_evaluated_once": true,
+  "results": [
+    {
+      "method": "euclidean",
+      "selected_K": 8,
+      "total_prototypes": 80,
+      "test_accuracy": 0.9613,
+      "test_macro_f1": 0.9613219691380713,
+      "test_weighted_f1": 0.9613219691380714,
+      "final_prototype_fit_seconds": 2.6498,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "selected_K": 8,
+      "total_prototypes": 80,
+      "test_accuracy": 0.9593,
+      "test_macro_f1": 0.959317381326542,
+      "test_weighted_f1": 0.9593173813265421,
+      "final_prototype_fit_seconds": 2.6498,
+      "kmeans_warning_count": 0
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "experiment": "Final test evaluation of quantized distance ProtoWords",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 global CLS features",
+  "development_images": 50000,
+  "official_test_images": 10000,
+  "selection_protocol": "K and formats, C values, and quantization method were fixed from E12 validation results before test evaluation.",
+  "test_used_for_selection": false,
+  "timing_note": "Median of three CPU measurements on up to 1,000 test features; DINOv2 feature extraction is excluded.",
+  "random_seed": 42,
+  "kmeans_n_init": 10,
+  "kmeans_max_iter": 300,
+  "uint8_quantization": {
+    "method": "Per-dimension affine quantization of standardized distances",
+    "clip_percentile_each_tail": 0.5,
+    "parameters_fit_on": "All 50,000 development images only"
+  },
+  "baseline_test_accuracy": 0.9761,
+  "baseline_test_macro_f1": 0.9761027269288004,
+  "results": [
+    "final_test_metrics.csv",
+    "final_test_predictions.csv",
+    "final_test_classification_reports.txt",
+    "final_test_confusion_matrices.npz"
+  ],
+  "runtime_seconds": 104.761
+}

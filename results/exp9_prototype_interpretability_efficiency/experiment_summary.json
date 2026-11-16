@@ -1,0 +1,25 @@
+{
+  "experiment": "Prototype interpretability and representation efficiency",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 CLS features",
+  "feature_dimension": 384,
+  "development_images": 50000,
+  "source_model": "Experiment 6 final model bundle",
+  "codebook_size": 256,
+  "active_soft_prototypes": 8,
+  "temperature": 0.13535451889038086,
+  "hybrid_soft_weight": 20.0,
+  "empty_prototypes": 0,
+  "smallest_cluster": 63,
+  "largest_cluster": 384,
+  "mean_cluster_purity": 0.9557851179926757,
+  "mean_cluster_entropy_bits": 0.2211029438482126,
+  "images_per_prototype_contact_sheet": 1,
+  "timing_note": "Median CPU feature-encoding plus classifier-prediction time on the selected feature subset; DINOv2 extraction is excluded.",
+  "storage_note": "Per-image representation payload and amortized shared codebook/scaler/classifier parameter storage are estimates. They exclude Python/joblib serialization overhead and DINOv2 backbone storage.",
+  "results_files": [
+    "prototype_summary.csv",
+    "prototype_representative_examples.csv",
+    "representation_efficiency.csv"
+  ]
+}

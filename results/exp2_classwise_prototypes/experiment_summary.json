@@ -1,0 +1,169 @@
+{
+  "experiment": "Class-wise prototypes on frozen DINOv2 ViT-S/14 features",
+  "dataset": "CIFAR-10",
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "feature_dimension": 384,
+  "train_images": 45000,
+  "validation_images": 5000,
+  "official_test_images": 10000,
+  "official_test_used": true,
+  "normalization": "L2 per image feature vector",
+  "prototype_learning": "K=1 uses class mean; K>1 uses Euclidean K-Means independently per class",
+  "prediction_variants": {
+    "euclidean": "Nearest unnormalized K-Means centroid by Euclidean distance",
+    "cosine": "Nearest L2-normalized centroid by cosine similarity"
+  },
+  "k_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "seed": 42,
+  "n_init": 10,
+  "max_iter": 300,
+  "baseline_validation_reference": {
+    "method": "DINOv2 + Logistic Regression",
+    "selected_C": 1.0,
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757
+  },
+  "best_validation_configurations": {
+    "euclidean": {
+      "method": "euclidean",
+      "prototypes_per_class": 8,
+      "total_prototypes": 80,
+      "validation_accuracy": 0.9622,
+      "validation_macro_f1": 0.9621862468010158,
+      "validation_weighted_f1": 0.962186246801016,
+      "prototype_fit_seconds": 2.6962,
+      "kmeans_warning_count": 0,
+      "accuracy_difference_from_baseline_pp": -1.5
+    },
+    "cosine": {
+      "method": "cosine",
+      "prototypes_per_class": 8,
+      "total_prototypes": 80,
+      "validation_accuracy": 0.9622,
+      "validation_macro_f1": 0.9621659788040212,
+      "validation_weighted_f1": 0.9621659788040211,
+      "prototype_fit_seconds": 2.6962,
+      "kmeans_warning_count": 0,
+      "accuracy_difference_from_baseline_pp": -1.5
+    }
+  },
+  "validation_results": [
+    {
+      "method": "euclidean",
+      "prototypes_per_class": 1,
+      "total_prototypes": 10,
+      "validation_accuracy": 0.9518,
+      "validation_macro_f1": 0.9518901453908238,
+      "validation_weighted_f1": 0.9518901453908238,
+      "prototype_fit_seconds": 0.0132,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "prototypes_per_class": 1,
+      "total_prototypes": 10,
+      "validation_accuracy": 0.9506,
+      "validation_macro_f1": 0.9504543554538822,
+      "validation_weighted_f1": 0.9504543554538821,
+      "prototype_fit_seconds": 0.0132,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "euclidean",
+      "prototypes_per_class": 2,
+      "total_prototypes": 20,
+      "validation_accuracy": 0.9552,
+      "validation_macro_f1": 0.9553672301150005,
+      "validation_weighted_f1": 0.9553672301150006,
+      "prototype_fit_seconds": 0.8439,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "prototypes_per_class": 2,
+      "total_prototypes": 20,
+      "validation_accuracy": 0.9562,
+      "validation_macro_f1": 0.9562222678682166,
+      "validation_weighted_f1": 0.9562222678682166,
+      "prototype_fit_seconds": 0.8439,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "euclidean",
+      "prototypes_per_class": 4,
+      "total_prototypes": 40,
+      "validation_accuracy": 0.9604,
+      "validation_macro_f1": 0.9605510805875346,
+      "validation_weighted_f1": 0.9605510805875345,
+      "prototype_fit_seconds": 1.4899,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "prototypes_per_class": 4,
+      "total_prototypes": 40,
+      "validation_accuracy": 0.9588,
+      "validation_macro_f1": 0.9587861029707773,
+      "validation_weighted_f1": 0.9587861029707774,
+      "prototype_fit_seconds": 1.4899,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "euclidean",
+      "prototypes_per_class": 8,
+      "total_prototypes": 80,
+      "validation_accuracy": 0.9622,
+      "validation_macro_f1": 0.9621862468010158,
+      "validation_weighted_f1": 0.962186246801016,
+      "prototype_fit_seconds": 2.6962,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "prototypes_per_class": 8,
+      "total_prototypes": 80,
+      "validation_accuracy": 0.9622,
+      "validation_macro_f1": 0.9621659788040212,
+      "validation_weighted_f1": 0.9621659788040211,
+      "prototype_fit_seconds": 2.6962,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "DINOv2 + Logistic Regression",
+      "prototypes_per_class": "",
+      "total_prototypes": "",
+      "validation_accuracy": 0.9772,
+      "validation_macro_f1": 0.9772272516012757,
+      "validation_weighted_f1": "",
+      "prototype_fit_seconds": "",
+      "kmeans_warning_count": ""
+    }
+  ],
+  "final_test_results": [
+    {
+      "method": "euclidean",
+      "selected_K": 8,
+      "total_prototypes": 80,
+      "test_accuracy": 0.9613,
+      "test_macro_f1": 0.9613219691380713,
+      "test_weighted_f1": 0.9613219691380714,
+      "final_prototype_fit_seconds": 2.6498,
+      "kmeans_warning_count": 0
+    },
+    {
+      "method": "cosine",
+      "selected_K": 8,
+      "total_prototypes": 80,
+      "test_accuracy": 0.9593,
+      "test_macro_f1": 0.959317381326542,
+      "test_weighted_f1": 0.9593173813265421,
+      "final_prototype_fit_seconds": 2.6498,
+      "kmeans_warning_count": 0
+    }
+  ]
+}

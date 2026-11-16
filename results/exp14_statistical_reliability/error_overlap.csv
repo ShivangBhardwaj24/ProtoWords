@@ -1,0 +1,5 @@
+baseline,method,both_correct,baseline_correct_method_wrong,baseline_wrong_method_correct,both_wrong,discordant_predictions
+continuous_dinov2_lr,k128_uint8,9695,66,32,207,98
+continuous_dinov2_lr,k256_uint8,9707,54,28,211,82
+continuous_dinov2_lr,k256_float16,9713,48,23,216,71
+continuous_dinov2_lr,k256_float32,9715,46,25,214,71

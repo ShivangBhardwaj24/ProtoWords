@@ -1,0 +1,54 @@
+{
+  "experiment": "exp3_shared_global_protowords",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "frozen DINOv2 ViT-S/14 global CLS features",
+  "feature_dimension": 384,
+  "training_images": 45000,
+  "validation_images": 5000,
+  "normalization": "L2 per image feature vector",
+  "codebook_training": "one global Euclidean K-Means codebook fitted on training features only",
+  "representations": [
+    "hard one-hot nearest-centroid assignment",
+    "Euclidean distances to all centroids"
+  ],
+  "distance_scaling": "StandardScaler fitted on training distances only",
+  "K_values": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "C_values": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "seed": 42,
+  "kmeans_n_init": 10,
+  "kmeans_max_iter": 300,
+  "logistic_regression_max_iter": 2000,
+  "official_test_used": false,
+  "baseline_validation_reference": {
+    "selected_C": 1.0,
+    "validation_accuracy": 0.9772,
+    "validation_macro_f1": 0.9772272516012757
+  },
+  "best_validation_configuration": {
+    "K": 256,
+    "representation": "distance",
+    "selected_C": 0.1,
+    "validation_accuracy": 0.9774,
+    "validation_macro_f1": 0.9774194612395422,
+    "validation_weighted_f1": 0.9774194612395423,
+    "inertia": 22994.302734375,
+    "min_cluster_size": 64,
+    "max_cluster_size": 352,
+    "empty_clusters": 0,
+    "convergence_warning": false
+  },
+  "total_runtime_seconds": 138.763,
+  "results_file": "results/exp3_shared_global_protowords/validation_results.csv",
+  "model_file": "outputs/exp3_shared_global_protowords/global_protowords_models.joblib"
+}

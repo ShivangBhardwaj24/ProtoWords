@@ -1,0 +1,25 @@
+{
+  "source_experiment": "exp6_hybrid_final_evaluation",
+  "model_file": "/home/shivang/ProtoWords/outputs/exp6_hybrid_final_evaluation/final_models.joblib",
+  "K": 256,
+  "m": 8,
+  "temperature": 0.13535451889038086,
+  "soft_weight": 20.0,
+  "corruptions": [
+    "gaussian_noise",
+    "shot_noise",
+    "impulse_noise",
+    "defocus_blur",
+    "glass_blur",
+    "motion_blur",
+    "zoom_blur",
+    "snow",
+    "frost",
+    "fog",
+    "brightness",
+    "contrast",
+    "elastic_transform",
+    "pixelate",
+    "jpeg_compression"
+  ]
+}

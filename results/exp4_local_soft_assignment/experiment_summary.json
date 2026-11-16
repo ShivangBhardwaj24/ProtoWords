@@ -1,0 +1,54 @@
+{
+  "experiment": "Localized Soft Assignment ProtoWords",
+  "dataset": "CIFAR-10",
+  "feature_extractor": "Frozen DINOv2 ViT-S/14 CLS features",
+  "feature_dimension": 384,
+  "feature_cache": "/home/shivang/ProtoWords/outputs/exp1_baseline/cifar10_dinov2_vits14_224px_train45000_val5000_test10000_seed42.npz",
+  "training_images": 45000,
+  "validation_images": 5000,
+  "official_test_used": false,
+  "normalization": "L2 normalization per image feature",
+  "codebook_learning": "One global K-Means codebook fitted on training features for each K",
+  "assignment": "Softmax over negative squared distances to the m nearest prototypes",
+  "temperature_reference": "Median training-set gap between nearest and second-nearest squared distances",
+  "k_values": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "m_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "temperature_multipliers": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "c_values": [
+    0.01,
+    0.1,
+    1,
+    10,
+    100
+  ],
+  "seed": 42,
+  "kmeans_n_init": 10,
+  "best_validation_configuration": {
+    "K": 256,
+    "m": 8,
+    "temperature_multiplier": 2.0,
+    "temperature": 0.13783133029937744,
+    "selected_C": 100.0,
+    "validation_accuracy": 0.9748,
+    "validation_macro_f1": 0.9748440252985795,
+    "validation_weighted_f1": 0.9748440252985796,
+    "kmeans_fit_seconds": 57.240246786997886
+  },
+  "total_runtime_seconds": 158.14329839398852,
+  "results_file": "validation_results.csv",
+  "hyperparameter_search_file": "hyperparameter_search.csv"
+}
